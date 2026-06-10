@@ -23,6 +23,8 @@ const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 1000, // Increased for development testing
   message: { message: 'Too many requests, please try again later.' },
+  standardHeaders: true,   // Return rate limit info in RateLimit-* headers
+  legacyHeaders: false,    // Disable X-RateLimit-* headers (deprecated)
 })
 
 // ── Public ──────────────────────────────────────────────────

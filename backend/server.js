@@ -10,6 +10,10 @@ const coupleRoutes  = require('./routes/couples')
 const expenseRoutes = require('./routes/expenses')
 
 const app  = express()
+
+// ── Trust Render.com / proxy ──────────────────────────────────
+// Required so express-rate-limit can read X-Forwarded-For correctly
+app.set('trust proxy', 1)
 const PORT = process.env.PORT || 5000
 
 // ── Security & Middleware ──────────────────────────────────────
