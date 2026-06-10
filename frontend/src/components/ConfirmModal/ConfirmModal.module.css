@@ -1,0 +1,142 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  animation: fadeIn var(--transition-fast) forwards;
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  animation: scaleUp var(--transition-fast) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Light Theme overrides */
+:global(html[data-theme="light"]) .modal {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconBox.danger {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--color-error);
+}
+
+.iconBox.primary {
+  background: rgba(6, 193, 103, 0.15);
+  color: var(--color-partner-a);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.body {
+  margin-top: -4px;
+}
+
+.message {
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  color: var(--color-on-surface-variant);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
+}
+
+.cancelBtn {
+  border-color: var(--color-outline-variant) !important;
+  color: var(--color-on-surface-variant) !important;
+}
+
+.cancelBtn:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--color-on-surface) !important;
+}
+
+:global(html[data-theme="light"]) .cancelBtn:hover {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+.confirmBtn {
+  font-weight: 600 !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+  .modal {
+    padding: var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .message {
+    font-size: 13px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    gap: var(--space-sm);
+  }
+}

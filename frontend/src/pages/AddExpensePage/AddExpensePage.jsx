@@ -73,6 +73,7 @@ const AddExpensePage = () => {
           paidBy:   expense.paidBy,
           date:     new Date(expense.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
           note:     expense.note,
+          addedBy:  expense.addedBy?._id || expense.addedBy,
         },
       })
       navigate('/dashboard')
@@ -124,7 +125,7 @@ const AddExpensePage = () => {
         >
           <Icon
             name={item.icon}
-            size={26}
+            size={20}
             filled={isSelected}
             className={styles.categoryIcon}
           />
@@ -182,7 +183,7 @@ const AddExpensePage = () => {
             <div className={styles.sectionHeaderLeft}>
               <span className={styles.sectionLabel}>Category</span>
               <span className={styles.selectedCatChip}>
-                <Icon name={CATEGORY_MAP[category]?.icon || 'category'} size={13} filled />
+                <Icon name={CATEGORY_MAP[category]?.icon || 'category'} size={11} filled />
                 {CATEGORY_MAP[category]?.label || category}
               </span>
             </div>
@@ -192,7 +193,7 @@ const AddExpensePage = () => {
               onClick={() => setEditMode((v) => !v)}
               aria-pressed={editMode}
             >
-              <Icon name={editMode ? 'check' : 'push_pin'} size={15} filled={editMode} />
+              <Icon name={editMode ? 'check' : 'push_pin'} size={11} filled={editMode} />
               {editMode ? 'Done' : `Pins ${pinned.length}/${MAX_PINS}`}
             </button>
           </div>
@@ -275,7 +276,7 @@ const AddExpensePage = () => {
           aria-label="Add expense"
         >
           <span className={styles.ctaIcon}>
-            <Icon name="add_circle" size={30} filled />
+            <Icon name="add_circle" size={22} filled />
           </span>
           {saving ? 'Saving…' : 'Add Expense'}
         </button>

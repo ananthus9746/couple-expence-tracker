@@ -42,13 +42,16 @@
 .logo {
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-xl);
-  background: var(--color-partner-a-dim);
-  border: 1.5px solid var(--color-partner-a);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-sm);
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .title {
@@ -151,24 +154,75 @@
   border: 1.5px solid var(--color-outline-variant);
   border-radius: var(--radius-xl);
   text-decoration: none;
-  color: var(--color-on-surface-variant);
-  font-size: var(--text-body-md-size);
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast);
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
   -webkit-tap-highlight-color: transparent;
 }
 
 .inviteBtn:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-partner-a);
   background: var(--color-partner-a-dim);
+  box-shadow: 0 4px 20px rgba(6, 193, 103, 0.08);
 }
 
-.inviteBtn span {
+.inviteIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-partner-a);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.inviteBtn:hover .inviteIconBox {
+  background: var(--color-partner-a);
+  color: #000000;
+}
+
+.inviteText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   flex: 1;
+  text-align: left;
 }
 
-.inviteBtn strong {
-  color: var(--color-primary);
-  font-weight: 600;
+.inviteLabel {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  transition: color var(--transition-fast);
 }
+
+.inviteBtn:hover .inviteLabel {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+:global(html[data-theme="light"]) .inviteBtn:hover .inviteLabel {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.inviteAction {
+  font-size: var(--text-body-md-size);
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.arrowIcon {
+  color: var(--color-on-surface-variant);
+  opacity: 0.4;
+  transition: transform var(--transition-fast), opacity var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.inviteBtn:hover .arrowIcon {
+  opacity: 0.8;
+  color: var(--color-partner-a);
+  transform: translateX(4px);
+}
+

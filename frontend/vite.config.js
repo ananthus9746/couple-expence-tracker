@@ -7,11 +7,21 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons/*.png'],
+      devOptions: {
+        enabled: true
+      },
+      includeAssets: [
+        'favicon.svg',
+        'favicon.ico',
+        'apple-touch-icon.png',
+        'favicon-96x96.png',
+        'web-app-manifest-192x192.png',
+        'web-app-manifest-512x512.png'
+      ],
       manifest: {
         name: 'The Duel – Couple Expense Tracker',
         short_name: 'The Duel',
-        description: "Track expenses together. See who's overspending \uD83D\uDE09",
+        description: "Track expenses together. See who's overspending 😉",
         theme_color: '#101415',
         background_color: '#101415',
         display: 'standalone',
@@ -20,17 +30,13 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/icons/icon-192x192.png',
+            src: '/web-app-manifest-192x192.png',
             sizes: '192x192',
             type: 'image/png',
+            purpose: 'any maskable',
           },
           {
-            src: '/icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-          {
-            src: '/icons/icon-512x512.png',
+            src: '/web-app-manifest-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',

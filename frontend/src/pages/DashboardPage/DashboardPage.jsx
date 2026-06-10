@@ -7,7 +7,9 @@ import Tabs from '../../components/Tabs/Tabs'
 import ExpenseItem from '../../components/ExpenseItem/ExpenseItem'
 import Icon from '../../components/Icon/Icon'
 import { useExpense } from '../../context/ExpenseContext'
+import { useAuth } from '../../context/AuthContext'
 import { expenses as expensesApi } from '../../services/api'
+import ConfirmModal from '../../components/ConfirmModal/ConfirmModal'
 import styles from './DashboardPage.module.css'
 
 const VIEW_TABS = [
@@ -18,7 +20,26 @@ const VIEW_TABS = [
 const DashboardPage = () => {
   const navigate = useNavigate()
   const { state, stats, dispatch } = useExpense()
+  const { user } = useAuth()
   const [activeTab, setActiveTab] = useState('mine')
+  const [expenseToDelete, setExpenseToDelete] = useState(null)
+
+  const handleDeleteClick = (expense) => {
+    setExpenseToDelete(expense)
+  }
+
+  const handleConfirmDelete = async () => {
+    if (!expenseToDelete) return
+    try {
+      await expensesApi.delete(expenseToDelete.id)
+      dispatch({ type: 'DELETE_EXPENSE', payload: expenseToDelete.id })
+    } catch (err) {
+      console.error('Failed to delete expense:', err)
+      alert(err.message || 'Failed to delete expense')
+    } finally {
+      setExpenseToDelete(null)
+    }
+  }
 
   const formatCurrency = (n) =>
     new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n)
@@ -39,6 +60,7 @@ const DashboardPage = () => {
           paidBy:   e.paidBy,
           date:     new Date(e.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
           note:     e.note,
+          addedBy:  e.addedBy?._id || e.addedBy,
         }))
         dispatch({ type: 'HYDRATE', payload: { expenses: normalised } })
       })
@@ -134,11 +156,23 @@ const DashboardPage = () => {
                 category={expense.category}
                 date={expense.date}
                 paidBy={expense.paidBy}
+                onDelete={expense.addedBy === user?._id ? () => handleDeleteClick(expense) : undefined}
               />
             ))}
           </div>
         )}
       </section>
+
+      <ConfirmModal
+        isOpen={Boolean(expenseToDelete)}
+        title="Delete Expense?"
+        message={`Are you sure you want to delete "${expenseToDelete?.title}" for ${formatCurrency(expenseToDelete?.amount || 0)}? This action cannot be undone.`}
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setExpenseToDelete(null)}
+        variant="danger"
+      />
 
     </PageShell>
   )

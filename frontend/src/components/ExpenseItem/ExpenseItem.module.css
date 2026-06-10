@@ -84,3 +84,39 @@
   font-size: var(--text-body-sm-size);
   color: var(--color-on-surface-variant);
 }
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+  opacity: 0.6;
+}
+
+.deleteBtn:hover {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--color-error);
+  opacity: 1;
+}
+
+/* Hide by default and show on row hover on desktop */
+@media (hover: hover) {
+  .deleteBtn {
+    opacity: 0;
+  }
+  .item:hover .deleteBtn {
+    opacity: 0.6;
+  }
+  .item:hover .deleteBtn:hover {
+    opacity: 1;
+  }
+}
+

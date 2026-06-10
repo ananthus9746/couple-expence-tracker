@@ -23,7 +23,7 @@ const CATEGORY_ICONS = {
  *   paidBy   {string}  – name of person who paid
  *   onClick  {function}
  */
-const ExpenseItem = ({ title, amount, category = 'other', date, paidBy, onClick }) => {
+const ExpenseItem = ({ title, amount, category = 'other', date, paidBy, onClick, onDelete }) => {
   const iconName = CATEGORY_ICONS[category.toLowerCase()] || CATEGORY_ICONS.other
   const formatted = new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -48,6 +48,20 @@ const ExpenseItem = ({ title, amount, category = 'other', date, paidBy, onClick 
         <span className={[styles.amount, styles.debit].join(' ')}>{formatted}</span>
         {date && <span className={styles.date}>{date}</span>}
       </div>
+      {onDelete && (
+        <button
+          type="button"
+          className={styles.deleteBtn}
+          onClick={(e) => {
+            e.stopPropagation()
+            e.preventDefault()
+            onDelete()
+          }}
+          aria-label={`Delete ${title}`}
+        >
+          <Icon name="delete" size={18} />
+        </button>
+      )}
     </div>
   )
 }

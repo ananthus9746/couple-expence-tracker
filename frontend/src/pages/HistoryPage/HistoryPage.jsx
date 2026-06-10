@@ -5,7 +5,10 @@ import ExpenseItem from '../../components/ExpenseItem/ExpenseItem'
 import Tabs from '../../components/Tabs/Tabs'
 import Icon from '../../components/Icon/Icon'
 import { useExpense } from '../../context/ExpenseContext'
+import { useAuth } from '../../context/AuthContext'
 import { ALL_CATEGORIES } from '../../data/categories'
+import { expenses as expensesApi } from '../../services/api'
+import ConfirmModal from '../../components/ConfirmModal/ConfirmModal'
 import styles from './HistoryPage.module.css'
 
 const CATEGORY_FILTERS = [
@@ -14,9 +17,28 @@ const CATEGORY_FILTERS = [
 ]
 
 const HistoryPage = () => {
-  const { state, stats } = useExpense()
+  const { state, stats, dispatch } = useExpense()
+  const { user } = useAuth()
   const [partnerTab, setPartnerTab]     = useState('all')
   const [activeFilter, setActiveFilter] = useState('all')
+  const [expenseToDelete, setExpenseToDelete] = useState(null)
+
+  const handleDeleteClick = (expense) => {
+    setExpenseToDelete(expense)
+  }
+
+  const handleConfirmDelete = async () => {
+    if (!expenseToDelete) return
+    try {
+      await expensesApi.delete(expenseToDelete.id)
+      dispatch({ type: 'DELETE_EXPENSE', payload: expenseToDelete.id })
+    } catch (err) {
+      console.error('Failed to delete expense:', err)
+      alert(err.message || 'Failed to delete expense')
+    } finally {
+      setExpenseToDelete(null)
+    }
+  }
 
   const partnerTabs = [
     { key: 'all', label: 'Both' },
@@ -159,10 +181,22 @@ const HistoryPage = () => {
               category={expense.category}
               date={expense.date}
               paidBy={expense.paidBy}
+              onDelete={expense.addedBy === user?._id ? () => handleDeleteClick(expense) : undefined}
             />
           ))}
         </div>
       )}
+
+      <ConfirmModal
+        isOpen={Boolean(expenseToDelete)}
+        title="Delete Expense?"
+        message={`Are you sure you want to delete "${expenseToDelete?.title}" for ${formatCurrency(expenseToDelete?.amount || 0)}? This action cannot be undone.`}
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setExpenseToDelete(null)}
+        variant="danger"
+      />
     </PageShell>
   )
 }

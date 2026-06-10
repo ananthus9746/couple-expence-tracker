@@ -15,6 +15,8 @@ import HistoryPage      from './pages/HistoryPage/HistoryPage'
 import InsightsPage     from './pages/InsightsPage/InsightsPage'
 import ProfilePage      from './pages/ProfilePage/ProfilePage'
 import CreateCouplePage   from './pages/CreateCouplePage/CreateCouplePage'
+import InstallPWA        from './components/InstallPWA/InstallPWA'
+
 
 
 /* ══════════════════════════════════════════════════
@@ -130,6 +132,7 @@ const App = () => (
         <ExpenseProvider>
           <CoupleLoader>
             <AppRoutes />
+            <InstallPWA />
           </CoupleLoader>
         </ExpenseProvider>
       </AuthProvider>

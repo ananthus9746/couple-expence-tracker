@@ -44,9 +44,6 @@ const LoginPage = () => {
     const e = {}
     if (!email.trim())    e.email    = 'Email is required'
     if (!password.trim()) e.password = 'Password is required'
-    if (inviteCode.trim() && inviteCode.trim().length < 4) {
-      e.inviteCode = 'Please enter a valid invite code'
-    }
     return e
   }
 
@@ -110,7 +107,7 @@ const LoginPage = () => {
 
       <div className={styles.header}>
         <div className={styles.logo}>
-          <Icon name="bolt" size={32} style={{ color: 'var(--color-partner-a)' }} />
+          <img src="/apple-touch-icon.png" alt="The Duel Logo" className={styles.logoImg} />
         </div>
         <h1 className={styles.title}>Welcome back</h1>
         <p className={styles.subtitle}>Sign in to The Duel 💸</p>
@@ -137,16 +134,6 @@ const LoginPage = () => {
           leadingIcon="lock"
         />
 
-        <InputField
-          label="Invite Code (Optional)"
-          placeholder="e.g. A3F9B2"
-          value={inviteCode}
-          onChange={(e) => { setInviteCode(e.target.value.toUpperCase().slice(0, 8)); setErrors((p) => ({ ...p, inviteCode: '' })) }}
-          error={errors.inviteCode}
-          leadingIcon="key"
-          maxLength={8}
-          style={{ letterSpacing: '0.15em', fontWeight: 700 }}
-        />
 
         {apiError && (
           <div className={styles.apiError} role="alert">
@@ -177,9 +164,14 @@ const LoginPage = () => {
         </div>
 
         <Link to="/join" className={styles.inviteBtn}>
-          <Icon name="key" size={18} style={{ color: 'var(--color-primary)', flexShrink: 0 }} />
-          <span>Have an invite code? <strong>Join here</strong></span>
-          <Icon name="chevron_right" size={18} style={{ opacity: 0.4, flexShrink: 0 }} />
+          <div className={styles.inviteIconBox}>
+            <Icon name="key" size={20} filled />
+          </div>
+          <div className={styles.inviteText}>
+            <span className={styles.inviteLabel}>Have an invite code?</span>
+            <span className={styles.inviteAction}>Join here</span>
+          </div>
+          <Icon name="chevron_right" size={20} className={styles.arrowIcon} />
         </Link>
       </form>
     </PageShell>

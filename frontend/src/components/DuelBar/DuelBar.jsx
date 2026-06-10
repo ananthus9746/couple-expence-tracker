@@ -31,7 +31,6 @@ const DuelBar = ({
       >
         <div className={styles.segmentA} style={{ width: `${clampedA}%` }} />
         <div className={styles.segmentB} style={{ width: `${clampedB}%` }} />
-        <div className={styles.midMarker} aria-hidden="true" />
       </div>
 
       {showLabels && (

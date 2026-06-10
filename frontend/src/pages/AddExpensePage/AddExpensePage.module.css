@@ -3,7 +3,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-md);
 }
 
 /* ────────────────────────────────────────────
@@ -24,7 +24,7 @@
   font-weight: var(--text-label-md-weight);
   color: var(--color-on-surface-variant);
   text-transform: uppercase;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .amountRow {
@@ -91,27 +91,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   gap: var(--space-sm);
 }
 
 .sectionHeaderLeft {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 4px;
   flex-wrap: wrap;
 }
 
 .sectionLabel {
   font-family: var(--font-sans);
-  font-size: var(--text-label-md-size);
-  line-height: var(--text-label-md-lh);
+  font-size: 9px;
+  line-height: 1.2;
   letter-spacing: var(--text-label-md-ls);
   font-weight: var(--text-label-md-weight);
   color: var(--color-on-surface-variant);
   text-transform: uppercase;
   display: block;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .sectionHeaderRow .sectionLabel {
@@ -129,29 +129,29 @@
 .selectedCatChip {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 10px 3px 8px;
+  gap: 3px;
+  padding: 3px 12px 3px 12px;
   border-radius: var(--radius-full);
-  background: var(--color-partner-a-dim);
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
-  font-size: var(--text-label-md-size);
+  border: 1px solid rgba(128, 128, 128, 0.452);
+  color: var(--color-on-surface-variant);
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 /* Edit pins button */
 .editPinsBtn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 5px 10px;
+  gap: 3px;
+  padding: 3px 8px;
   border-radius: var(--radius-full);
   border: 1.5px solid var(--color-outline-variant);
   background: transparent;
   color: var(--color-on-surface-variant);
   font-family: var(--font-sans);
-  font-size: var(--text-label-md-size);
+  font-size: 9px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -161,6 +161,7 @@
     color var(--transition-fast),
     background-color var(--transition-fast);
   -webkit-tap-highlight-color: transparent;
+  line-height: 1;
 }
 
 .editPinsBtn:hover {
@@ -178,7 +179,7 @@
 .editHint {
   font-size: var(--text-body-sm-size);
   color: var(--color-on-surface-variant);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
   background: var(--color-surface-container);
   border-radius: var(--radius-lg);
@@ -214,13 +215,13 @@
 .categoryGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 /* Outer wrapper — handles pin btn positioning */
 .categoryCard {
   position: relative;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-xl);
 }
 
 /* Pin indicator dot on pinned cards (not in edit mode) */
@@ -300,8 +301,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-outline-variant);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-md) var(--space-xs);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm) var(--space-xs);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -399,8 +400,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-outline-variant);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm);
 }
 
 .noteTextarea {
@@ -430,8 +431,8 @@
   background: var(--color-primary-container);
   color: var(--color-on-primary-container);
   border: none;
-  border-radius: var(--radius-2xl);
-  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-xl);
+  padding: 10px var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
