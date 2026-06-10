@@ -1,0 +1,79 @@
+/* ── DuelBar – two-color combined spending progress bar ── */
+
+.track {
+  position: relative;
+  height: 12px;
+  width: 100%;
+  background: var(--color-surface-container-high);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  display: flex;
+}
+
+.segmentA {
+  height: 100%;
+  background: var(--color-partner-a);
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4px;
+}
+
+.segmentB {
+  height: 100%;
+  background: rgb(94, 142, 255);
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4px;
+}
+
+/* center midpoint marker */
+.midMarker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--color-surface-container-lowest);
+  opacity: 0.6;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* ── Labels row ── */
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
+
+.labelA {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.labelB {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.partnerName {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  opacity: 0.7;
+}
+
+.amount {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg-size);
+  line-height: 1.2;
+  font-weight: var(--text-headline-sm-weight);
+}
+
+.amountA { color: var(--color-partner-a); }
+.amountB { color: var(--color-partner-b); }

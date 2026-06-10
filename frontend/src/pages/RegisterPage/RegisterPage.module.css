@@ -1,0 +1,226 @@
+/* ── RegisterPage ── */
+
+/* Theme toggle button — top right corner */
+.themeBtn {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-outline-variant);
+  background: var(--color-surface-container-low);
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.themeBtn:hover {
+  background: var(--color-surface-container-high);
+  color: var(--color-on-surface);
+  border-color: var(--color-outline);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.logo, .otpIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  background: var(--color-partner-a-dim);
+  border: 1.5px solid var(--color-partner-a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-mobile-size);
+  font-weight: var(--text-headline-lg-mobile-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Invite banner ── */
+
+.inviteBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-partner-a-dim);
+  border: 1px solid var(--color-partner-a);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.inviteBanner strong {
+  color: var(--color-partner-a);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ── Form ── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-surface-container-low);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-outline-variant);
+}
+
+.fieldGroupLabel {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-xs);
+}
+
+.fieldGroupSub {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  margin: -4px 0 var(--space-xs);
+  opacity: 0.8;
+}
+
+.apiError {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-error-container);
+  color: var(--color-error);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-body-sm-size);
+  font-weight: 500;
+}
+
+.switchText {
+  text-align: center;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.switchLink {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.switchLink:hover { text-decoration: underline; }
+
+/* ── OTP step ── */
+
+.otpForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.otpBoxes {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.otpBox {
+  width: 44px;
+  height: 54px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-outline-variant);
+  background: var(--color-surface-container-low);
+  color: var(--color-on-surface);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  caret-color: var(--color-primary);
+}
+
+.otpBox:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-partner-a-dim);
+}
+
+.otpBoxFilled {
+  border-color: var(--color-partner-a);
+  background: var(--color-partner-a-dim);
+  color: var(--color-partner-a);
+}
+
+.resendRow {
+  display: flex;
+  justify-content: center;
+  margin-top: -4px;
+}
+
+.resendTimer {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.resendBtn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resendBtn:hover { text-decoration: underline; }
+
+.resendMsg {
+  text-align: center;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-partner-a);
+  margin: 0;
+}
+
+.otpNote {
+  text-align: center;
+  font-size: 11px;
+  color: var(--color-on-surface-variant);
+  opacity: 0.7;
+  margin: 0;
+}

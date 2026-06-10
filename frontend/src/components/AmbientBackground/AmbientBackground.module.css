@@ -1,0 +1,48 @@
+/* ── AmbientBackground Component ── */
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: var(--color-background);
+  opacity: 1;
+}
+
+.glowPrimary {
+  position: absolute;
+  top: 25%;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--color-partner-a-dim) 0%, transparent 70%);
+  filter: blur(80px);
+  border-radius: var(--radius-full);
+  transition: transform 0.3s ease-out;
+}
+
+.glowSecondary {
+  position: absolute;
+  bottom: 25%;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--color-partner-b-dim) 0%, transparent 70%);
+  filter: blur(80px);
+  border-radius: var(--radius-full);
+  transition: transform 0.3s ease-out;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}

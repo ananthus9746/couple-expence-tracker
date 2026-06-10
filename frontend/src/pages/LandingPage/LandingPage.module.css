@@ -1,0 +1,126 @@
+/* ── LandingPage ── */
+
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.heroLogo {
+  margin-bottom: var(--space-lg);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-xl-size);
+  line-height: var(--text-headline-xl-lh);
+  letter-spacing: var(--text-headline-xl-ls);
+  font-weight: var(--text-headline-xl-weight);
+  background: linear-gradient(135deg, var(--color-on-surface) 0%, var(--color-outline) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.subheadline {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-lh);
+  color: var(--color-on-surface-variant);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ── Feature list ── */
+
+.features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  padding: var(--space-xs) 0;
+}
+
+/* ── Actions ── */
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.welcomeBack {
+  text-align: center;
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+.welcomeBack strong {
+  color: var(--color-on-surface);
+  font-weight: 600;
+}
+
+/* ── Join code button inside GlassCard ── */
+
+.joinCodeBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity var(--transition-fast);
+}
+
+.joinCodeBtn:hover { opacity: 0.8; }
+
+.joinCodeText {
+  flex: 1;
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  white-space: nowrap;
+}
+
+.joinCodeText strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ── Footer ── */
+
+.footer {
+  margin-top: var(--space-lg);
+}
+
+.footerText {
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  color: var(--color-outline);
+}
+
+.footerLink {
+  color: var(--color-outline);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.footerLink:hover { color: var(--color-primary); }

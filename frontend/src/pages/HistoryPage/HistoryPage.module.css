@@ -1,0 +1,110 @@
+/* ── HistoryPage ── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  line-height: var(--text-headline-md-lh);
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.filterRow {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding-bottom: var(--space-xs);
+  /* hide scrollbar visually */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.filterRow::-webkit-scrollbar {
+  display: none;
+}
+
+.filterChip {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-outline-variant);
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  font-size: var(--text-body-sm-size);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.filterChip:hover {
+  border-color: var(--color-outline);
+  color: var(--color-on-surface);
+}
+
+.filterChip.active {
+  border-color: var(--color-primary);
+  background: var(--color-partner-a-dim);
+  color: var(--color-primary);
+}
+
+/* ── Summary row ── */
+
+.summaryRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.summaryItem {
+  padding: var(--space-sm) var(--space-xs);
+  text-align: center;
+}
+
+.summaryValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.summaryLabel {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+/* ── List ── */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  color: var(--color-on-surface-variant);
+  text-align: center;
+}
+
+.emptyText {
+  font-size: var(--text-body-md-size);
+}

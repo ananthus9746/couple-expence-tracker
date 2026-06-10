@@ -1,0 +1,267 @@
+/* =====================================================
+   GLOBAL RESET & DESIGN TOKENS
+   ===================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Color Tokens — Uber-inspired palette ── */
+  /* Primary: Uber green */
+  --color-primary:                 #f8f8f8;
+  --color-primary-container:       #057A40;
+  --color-on-primary:              #f1f1f1;
+  --color-on-primary-container:    #d6f5e6;
+  --color-primary-fixed:           #d6f5e6;
+  --color-primary-fixed-dim:       #06C167;
+  --color-on-primary-fixed:        #002613;
+  --color-on-primary-fixed-variant:#057A40;
+  --color-inverse-primary:         #04a354;
+
+  /* Secondary: cool white/grey for partner B */
+  --color-secondary:               #e2e2e2;
+  --color-secondary-container:     #6b6b6b;
+  --color-on-secondary:            #1a1a1a;
+  --color-on-secondary-container:  #f5f5f5;
+  --color-secondary-fixed:         #f5f5f5;
+  --color-secondary-fixed-dim:     #e2e2e2;
+  --color-on-secondary-fixed:      #0d0d0d;
+  --color-on-secondary-fixed-variant: #3d3d3d;
+
+  /* Tertiary: Uber blue-grey accent */
+  --color-tertiary:                #9ba3af;
+  --color-tertiary-container:      #374151;
+  --color-on-tertiary:             #111827;
+  --color-on-tertiary-container:   #e5e7eb;
+  --color-tertiary-fixed:          #e5e7eb;
+  --color-tertiary-fixed-dim:      #9ba3af;
+  --color-on-tertiary-fixed:       #030712;
+  --color-on-tertiary-fixed-variant:#374151;
+
+  /* Error: stays red */
+  --color-error:                   #f87171;
+  --color-error-container:         #7f1d1d;
+  --color-on-error:                #ffffff;
+  --color-on-error-container:      #fecaca;
+
+  /* Backgrounds — Uber near-black */
+  --color-background:              #0a0a0a;
+  --color-on-background:           #f5f5f5;
+  --color-surface:                 #0a0a0a;
+  --color-surface-dim:             #0a0a0a;
+  --color-surface-bright:          #2a2a2a;
+  --color-surface-variant:         #1f1f1f;
+  --color-surface-tint:            #06C167;
+  --color-on-surface:              #f5f5f5;
+  --color-on-surface-variant:      #a3a3a3;
+  --color-inverse-surface:         #f5f5f5;
+  --color-inverse-on-surface:      #1a1a1a;
+
+  /* Surface containers — stepped dark greys */
+  --color-surface-container-lowest:  #050505;
+  --color-surface-container-low:     #111111;
+  --color-surface-container:         #1a1a1a;
+  --color-surface-container-high:    #242424;
+  --color-surface-container-highest: #2e2e2e;
+
+  /* Outlines */
+  --color-outline:                 #737373;
+  --color-outline-variant:         #2e2e2e;
+
+  /* ── Partner accent colors (Duel theme) ── */
+  --color-partner-a:               #06C167;  /* Uber green  */
+  --color-partner-b:               #ffffff;  /* white       */
+  --color-partner-a-dim:           rgba(6, 193, 103, 0.15);
+  --color-partner-b-dim:           rgba(255, 255, 255, 0.1);
+
+  /* ── Spacing Tokens ── */
+  --space-xs:    3px;
+  --space-sm:    6px;
+  --space-md:    12px;
+  --space-lg:    18px;
+  --space-xl:    24px;
+  --space-gutter: 12px;
+  --space-margin-mobile: 14px;
+  --space-margin-desktop: 32px;
+
+  /* ── Border Radius ── */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   10px;
+  --radius-xl:   14px;
+  --radius-2xl:  18px;
+  --radius-full: 9999px;
+
+  /* ── Typography ── */
+  --font-sans:     'Inter', system-ui, sans-serif;
+  --font-display:  'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --text-headline-xl-size:    28px;
+  --text-headline-xl-lh:      36px;
+  --text-headline-xl-ls:      -0.02em;
+  --text-headline-xl-weight:  800;
+
+  --text-headline-lg-size:    24px;
+  --text-headline-lg-lh:      32px;
+  --text-headline-lg-ls:      -0.02em;
+  --text-headline-lg-weight:  700;
+
+  --text-headline-lg-mobile-size:   20px;
+  --text-headline-lg-mobile-lh:     28px;
+  --text-headline-lg-mobile-weight: 700;
+
+  --text-headline-md-size:    18px;
+  --text-headline-md-lh:      26px;
+  --text-headline-md-weight:  600;
+
+  --text-headline-sm-size:    16px;
+  --text-headline-sm-lh:      22px;
+  --text-headline-sm-weight:  600;
+
+  --text-body-lg-size:   15px;
+  --text-body-lg-lh:     22px;
+  --text-body-lg-weight: 400;
+
+  --text-body-md-size:   13px;
+  --text-body-md-lh:     20px;
+  --text-body-md-weight: 400;
+
+  --text-body-sm-size:   12px;
+  --text-body-sm-lh:     17px;
+  --text-body-sm-weight: 400;
+
+  --text-label-md-size:   10px;
+  --text-label-md-lh:     14px;
+  --text-label-md-ls:     0.04em;
+  --text-label-md-weight: 600;
+
+  /* ── Animation ── */
+  --transition-fast:   150ms ease;
+  --transition-base:   300ms ease;
+  --transition-slow:   600ms ease;
+}
+
+/* ── Light Theme Overrides ── */
+html[data-theme="light"] {
+  /* Primary stays blue, but lighter containers */
+  --color-primary:                  #303030;
+  --color-primary-container:        #057A40;
+  --color-on-primary:               #ffffff;
+  --color-on-primary-container:     #d6f5e6;
+  --color-primary-fixed:            #d6f5e6;
+  --color-primary-fixed-dim:        #06C167;
+  --color-on-primary-fixed:         #002613;
+  --color-on-primary-fixed-variant: #057A40;
+  --color-inverse-primary:          #04a354;
+
+  /* Secondary */
+  --color-secondary:                #4b4b4b;
+  --color-secondary-container:      #d6d6d6;
+  --color-on-secondary:             #ffffff;
+  --color-on-secondary-container:   #1a1a1a;
+  --color-secondary-fixed:          #e8e8e8;
+  --color-secondary-fixed-dim:      #b0b0b0;
+  --color-on-secondary-fixed:       #0d0d0d;
+  --color-on-secondary-fixed-variant: #3d3d3d;
+
+  /* Tertiary */
+  --color-tertiary:                 #4b5563;
+  --color-tertiary-container:       #e2e5ea;
+  --color-on-tertiary:              #ffffff;
+  --color-on-tertiary-container:    #111827;
+
+  /* Error */
+  --color-error:                    #c0392b;
+  --color-error-container:          #fde8e8;
+  --color-on-error:                 #ffffff;
+  --color-on-error-container:       #7f1d1d;
+
+  /* Backgrounds — clean white */
+  --color-background:               #f5f5f5;
+  --color-on-background:            #111111;
+  --color-surface:                  #f5f5f5;
+  --color-surface-dim:              #e8e8e8;
+  --color-surface-bright:           #ffffff;
+  --color-surface-variant:          #ebebeb;
+  --color-surface-tint:             #06C167;
+  --color-on-surface:               #111111;
+  --color-on-surface-variant:       #5a5a5a;
+  --color-inverse-surface:          #1a1a1a;
+  --color-inverse-on-surface:       #f5f5f5;
+
+  /* Surface containers — stepped light greys */
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f9f9f9;
+  --color-surface-container:         #f0f0f0;
+  --color-surface-container-high:    #e8e8e8;
+  --color-surface-container-highest: #dedede;
+
+  /* Outlines */
+  --color-outline:                  #9a9a9a;
+  --color-outline-variant:          #d4d4d4;
+
+  /* Partner accents stay the same */
+  --color-partner-a:                #06C167;
+  --color-partner-b:                #222222;
+  --color-partner-a-dim:            rgba(6, 193, 103, 0.12);
+  --color-partner-b-dim:            rgba(0, 0, 0, 0.06);
+}
+
+/* ── Base Styles ── */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  font-weight: var(--text-body-md-weight);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* smooth theme transition */
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* ── Utility: Material Symbols ── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-outline-variant); border-radius: var(--radius-full); }
+
+/* ── Focus Ring ── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Page Root ── */
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}

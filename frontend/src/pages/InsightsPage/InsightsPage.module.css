@@ -1,0 +1,475 @@
+/* ── InsightsPage ── */
+
+/* ── Date filter chips ── */
+
+.dateFilterBar {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dateFilterBar::-webkit-scrollbar {
+  display: none;
+}
+
+.dateFilterBtn {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-outline-variant);
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm-size);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dateFilterBtn:hover {
+  border-color: var(--color-outline);
+  color: var(--color-on-surface);
+}
+
+.dateFilterBtnActive {
+  border-color: var(--color-primary);
+  background: var(--color-partner-a-dim);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ── Page header ── */
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  line-height: var(--text-headline-md-lh);
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+/* ── Partner panel ── */
+
+.partnerPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ── Hero total card ── */
+
+.heroCard {
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.heroLabel {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+.heroAmount {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-size);
+  font-weight: var(--text-headline-xl-weight);
+  line-height: 1.1;
+  letter-spacing: var(--text-headline-xl-ls);
+}
+
+.heroSub {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  margin-top: 2px;
+}
+
+.heroRight {
+  flex-shrink: 0;
+}
+
+.shareCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--partner-color, var(--color-primary));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sharePercent {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-xl-weight);
+  color: var(--color-on-surface);
+  line-height: 1.1;
+}
+
+.shareLabel {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+/* ── Section ── */
+
+.section {
+  /* gap handled by parent flex */
+}
+
+.sectionCard {
+  padding: var(--space-md);
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  line-height: var(--text-headline-sm-lh);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+}
+
+/* ── Daily chart header ── */
+
+.dailyHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.dailySubtitle {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  margin-top: 2px;
+}
+
+.dailyStats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.dailyStat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.dailyStatVal {
+  font-family: var(--font-display);
+  font-size: var(--text-body-md-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  line-height: 1.2;
+}
+
+.dailyStatLabel {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+.dailyStatDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--color-outline-variant);
+  flex-shrink: 0;
+}
+
+/* ── Daily bar chart ── */
+
+.dailyChart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* Scroll wrapper — wide for custom (3-month), full-width for week/month */
+.chartScroll {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.chartScrollWide {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chartScrollWide::-webkit-scrollbar {
+  display: none;
+}
+
+.dailyBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 90px;
+  /* week/month: fill container; custom: min-width so bars don't get too thin */
+  min-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dailyBars::-webkit-scrollbar {
+  display: none;
+}
+
+/* In wide mode each bar has a fixed min-width so 90 bars are readable */
+.chartScrollWide .dailyBars {
+  width: max-content;
+  min-width: unset;
+}
+
+.chartScrollWide .dailyBarWrap {
+  flex: unset;
+  width: 5px;
+}
+
+.chartScrollWide .dailyAxisRow {
+  width: max-content;
+  min-width: unset;
+}
+
+.chartScrollWide .dailyAxisLabel {
+  width: 5px;
+  flex: unset;
+}
+
+.dailyBarWrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  cursor: default;
+}
+
+.dailyBar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--color-outline-variant);
+}
+
+.dailyBarEmpty {
+  background: var(--color-surface-container-high);
+  opacity: 0.4;
+}
+
+.dailyBarToday {
+  border-radius: 3px 3px 0 0;
+}
+
+/* ── Tooltip ── */
+
+.barTooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface-container-highest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.barTooltipAmt {
+  font-family: var(--font-display);
+  font-size: var(--text-body-sm-size);
+  font-weight: 700;
+  color: var(--color-on-surface);
+  line-height: 1.3;
+}
+
+.barTooltipDay {
+  font-size: 9px;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+}
+
+/* ── X-axis labels ── */
+
+.dailyAxisRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-top: 3px;
+}
+
+.dailyAxisLabel {
+  flex: 1;
+  text-align: center;
+  font-size: 8px;
+  color: var(--color-on-surface-variant);
+  opacity: 0.5;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.dailyAxisLabelToday {
+  opacity: 1;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ── Category breakdown ── */
+
+.categoryDuelCard {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.categoryDuelRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.categoryDuelMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.categoryDuelName {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  color: var(--color-on-surface);
+  font-weight: 500;
+}
+
+.categoryDuelSplit {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.splitBar {
+  height: 10px;
+  width: 100%;
+  background: var(--color-surface-container-high);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.splitBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Tip highlights ── */
+
+.tipHighlightGreen {
+  color: var(--color-partner-a);
+  font-weight: 700;
+}
+
+.tipHighlightRed {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+/* ── Empty state ── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 60px var(--space-lg);
+  text-align: center;
+}
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+}
+
+.emptyText {
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  max-width: 240px;
+}

@@ -1,0 +1,39 @@
+/* ── PageShell Component ── */
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* page with bottom nav needs bottom padding so content clears the nav */
+.withNav {
+  padding-bottom: 72px;
+}
+
+/* page with fixed top header needs top padding */
+.withHeader {
+  padding-top: 52px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-margin-mobile);
+}
+
+/* landing-style: vertically centered, spaced */
+.centered {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}

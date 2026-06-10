@@ -1,0 +1,468 @@
+/* ── AddExpensePage ── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ────────────────────────────────────────────
+   AMOUNT SECTION
+───────────────────────────────────────────── */
+
+.amountSection {
+  text-align: center;
+  padding-top: var(--space-sm);
+}
+
+.amountSectionLabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.amountRow {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+}
+
+.currencySymbol {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  line-height: 1;
+  font-weight: var(--text-headline-lg-weight);
+  color: var(--color-primary);
+}
+
+.amountInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-size);
+  line-height: var(--text-headline-lg-lh);
+  font-weight: var(--text-headline-xl-weight);
+  letter-spacing: var(--text-headline-xl-ls);
+  color: var(--color-on-surface);
+  text-align: center;
+  width: 180px;
+  caret-color: var(--color-primary);
+  -moz-appearance: textfield;
+}
+
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amountInput::placeholder {
+  color: var(--color-outline);
+}
+
+.amountInput:focus {
+  box-shadow: none;
+}
+
+.amountError {
+  display: block;
+  margin-top: var(--space-sm);
+  font-size: var(--text-body-sm-size);
+  color: var(--color-error);
+}
+
+.amountSection:focus-within .amountRow {
+  filter: drop-shadow(0 0 20px var(--color-partner-a-dim));
+}
+
+/* ────────────────────────────────────────────
+   SECTION HEADER ROW
+───────────────────────────────────────────── */
+
+.sectionHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.sectionHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.sectionHeaderRow .sectionLabel {
+  margin-bottom: 0;
+}
+
+.optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+/* Selected category chip */
+.selectedCatChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-partner-a-dim);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: var(--text-label-md-size);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Edit pins button */
+.editPinsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-outline-variant);
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.editPinsBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.editPinsBtnActive {
+  border-color: var(--color-partner-a);
+  background: var(--color-partner-a-dim);
+  color: var(--color-partner-a);
+}
+
+/* Edit mode hint text */
+.editHint {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-container);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--color-partner-a);
+  line-height: var(--text-body-sm-lh);
+}
+
+/* ────────────────────────────────────────────
+   GRID SECTION DIVIDERS
+───────────────────────────────────────────── */
+
+.gridSectionLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm) 2px;
+  opacity: 0.7;
+}
+
+.gridSectionLabelMore {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+/* ────────────────────────────────────────────
+   CATEGORY GRID  (3-col)
+───────────────────────────────────────────── */
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/* Outer wrapper — handles pin btn positioning */
+.categoryCard {
+  position: relative;
+  border-radius: var(--radius-2xl);
+}
+
+/* Pin indicator dot on pinned cards (not in edit mode) */
+.categoryCard.pinned::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-partner-a);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+/* Hide dot when edit mode shows the full pin button */
+.categoryCard:has(.pinBtnVisible)::after {
+  opacity: 0;
+}
+
+/* ── Pin button ── */
+.pinBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-surface-container-high);
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Show on card hover */
+.categoryCard:hover .pinBtn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Always visible when edit mode is active */
+.pinBtnVisible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Pinned state */
+.pinBtnActive {
+  background: var(--color-partner-a);
+  color: #fff;
+}
+
+/* At max pins — greyed out */
+.pinBtnDisabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+}
+
+/* ── Inner selectable button ── */
+.categoryCardInner {
+  width: 100%;
+  background: var(--color-surface-container-low);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-md) var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.categoryCardInner:hover {
+  border-color: var(--color-primary);
+}
+
+.categoryCardInner:active {
+  transform: scale(0.95);
+}
+
+.categoryCard.selected .categoryCardInner {
+  background: var(--color-partner-a-dim);
+  border-color: var(--color-primary);
+}
+
+.categoryIcon {
+  color: var(--color-on-surface-variant);
+  transition: color var(--transition-fast);
+  line-height: 1;
+  display: flex;
+}
+
+.categoryCardInner:hover .categoryIcon,
+.categoryCard.selected .categoryCardInner .categoryIcon {
+  color: var(--color-primary);
+}
+
+.categoryCardLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: none;
+  transition: color var(--transition-fast);
+}
+
+.categoryCard.selected .categoryCardInner .categoryCardLabel {
+  color: var(--color-primary);
+}
+
+/* More grid spacing handled by gridSectionLabelMore top border */
+.moreGrid {
+  /* intentionally empty — spacing comes from .gridSectionLabelMore */
+}
+
+/* Show all categories toggle button */
+.showAllBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: 1.5px dashed var(--color-outline-variant);
+  border-radius: var(--radius-xl);
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm-size);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.showAllBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-partner-a-dim);
+}
+
+/* ────────────────────────────────────────────
+   NOTE TEXTAREA
+───────────────────────────────────────────── */
+
+.noteCard {
+  background: var(--color-surface-container-low);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-md);
+}
+
+.noteTextarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: var(--space-sm);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  resize: none;
+  caret-color: var(--color-primary);
+}
+
+.noteTextarea::placeholder {
+  color: var(--color-outline);
+}
+
+/* ────────────────────────────────────────────
+   CTA BUTTON
+───────────────────────────────────────────── */
+
+.ctaBtn {
+  width: 100%;
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  border: none;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  line-height: var(--text-headline-sm-lh);
+  font-weight: var(--text-headline-sm-weight);
+  cursor: pointer;
+  box-shadow: 0 6px 24px var(--color-partner-a-dim);
+  transition: transform var(--transition-fast), box-shadow var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ctaBtn:hover {
+  box-shadow: 0 12px 40px var(--color-partner-a-dim);
+}
+
+.ctaBtn:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 16px var(--color-partner-a-dim);
+}
+
+.ctaBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ctaIcon {
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+}

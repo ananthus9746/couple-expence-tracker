@@ -1,0 +1,54 @@
+/* ── AppLoader ── */
+
+.root {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--color-background);
+  z-index: 9999;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--color-partner-a-dim);
+  border: 1.5px solid var(--color-partner-a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.emoji {
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* Spinner ring */
+.spinner {
+  width: 36px;
+  height: 36px;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--color-outline-variant);
+  border-top-color: var(--color-partner-a);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%       { transform: scale(1.06); opacity: 0.8; }
+}

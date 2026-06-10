@@ -1,0 +1,25 @@
+/* ── Divider Component ── */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-outline-variant);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  line-height: var(--text-label-md-lh);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-outline);
+  text-transform: uppercase;
+  white-space: nowrap;
+}

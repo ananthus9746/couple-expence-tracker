@@ -1,0 +1,329 @@
+/* ── ProfilePage ── */
+
+.heroCard {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.heroInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  line-height: var(--text-headline-sm-lh);
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-on-surface);
+}
+
+.coupleName {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  margin-top: 2px;
+}
+
+/* ── Stats row ── */
+
+.statsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.statItem {
+  padding: var(--space-sm) var(--space-xs);
+  text-align: center;
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.statLabel {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+/* ── Sections ── */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sectionTitle {
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin: 0 2px;
+}
+
+/* ── Menu list ── */
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-container);
+  border-radius: var(--radius-xl);
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  font-weight: 500;
+  min-height: 52px;
+  transition: background-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menuItem:hover {
+  background: var(--color-surface-container-high);
+}
+
+.menuItem:active {
+  background: var(--color-surface-container-highest);
+}
+
+.menuIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.menuLabelGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.menuLabel {
+  font-size: var(--text-body-md-size);
+  font-weight: 500;
+  color: var(--color-on-surface);
+  line-height: 1.2;
+}
+
+.menuSub {
+  font-size: 11px;
+  color: var(--color-on-surface-variant);
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.menuArrow {
+  color: var(--color-on-surface-variant);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* ── Copy button ── */
+
+.copyBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-surface-container-high);
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.copyBtn:hover {
+  background: var(--color-partner-a-dim);
+  color: var(--color-partner-a);
+}
+
+.toggleSwitch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-surface-container-highest);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggleSwitch:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.toggleOn {
+  background: var(--color-partner-a);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-base);
+}
+
+.toggleOn .toggleThumb {
+  transform: translateX(18px);
+}
+
+/* ── Danger item (logout) ── */
+
+.dangerItem {
+  color: var(--color-error);
+}
+
+.dangerItem .menuIcon {
+  background: var(--color-error-container);
+  color: var(--color-error);
+}
+
+.dangerItem .menuLabel {
+  color: var(--color-error);
+}
+
+/* ── Demo badge on hero ── */
+
+.demoBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-xs);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-partner-a-dim);
+  border: 1px solid var(--color-outline-variant);
+  color: var(--color-primary);
+  font-size: var(--text-label-md-size);
+  letter-spacing: var(--text-label-md-ls);
+  font-weight: var(--text-label-md-weight);
+}
+
+/* ── Demo menu item ── */
+
+.demoItem {
+  border: 1px dashed var(--color-outline);
+  background: var(--color-surface-container-low);
+}
+
+.demoItem:hover {
+  background: var(--color-surface-container);
+  border-color: var(--color-partner-a);
+}
+
+/* ── Menu spinner (demo loading) ── */
+
+.menuSpinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-outline-variant);
+  border-top-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  animation: menuSpin 0.75s linear infinite;
+}
+
+@keyframes menuSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Inline Couple Setup ── */
+
+.setupCard {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tabRow {
+  display: flex;
+  background: var(--color-surface-container-high);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  gap: 4px;
+}
+
+.tabBtn {
+  flex: 1;
+  border: none;
+  background: none;
+  color: var(--color-on-surface-variant);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tabBtn:hover {
+  color: var(--color-on-surface);
+}
+
+.tabBtnActive {
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.setupForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.formError {
+  color: var(--color-error);
+  font-size: var(--text-body-sm-size);
+  text-align: center;
+  margin: 0;
+}

@@ -1,0 +1,141 @@
+/* ── BottomNav Component ── */
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-surface-container-lowest);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: var(--space-xs) var(--space-sm);
+  padding-bottom: max(var(--space-sm), env(safe-area-inset-bottom));
+  z-index: 100;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Regular tab item ── */
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: var(--space-xs) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  opacity: 0.5;
+  min-height: 44px;
+}
+
+.item:hover {
+  opacity: 0.9;
+  color: var(--color-primary);
+}
+
+.item:active {
+  transform: scale(0.93);
+}
+
+.item.active {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* no background pill — active state is color only */
+.pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 5px 10px 4px;
+  border-radius: var(--radius-full);
+}
+
+.item.active .pill {
+  background: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.iconWrap {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  line-height: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.item:not(.active) .label {
+  opacity: 0.7;
+}
+
+/* ── Center FAB item ── */
+
+.fabItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
+}
+
+.fabPill {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-10px);
+  box-shadow: 0 4px 16px var(--color-partner-a-dim);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow var(--transition-base),
+    background-color var(--transition-fast);
+  font-size: 22px;
+}
+
+.fabItem:hover .fabPill {
+  transform: translateY(-17px);
+  box-shadow: 0 8px 28px var(--color-partner-a-dim);
+}
+
+.fabItem:active .fabPill {
+  transform: translateY(-12px) scale(0.93);
+}
+
+/* active state (on /add route) – brighter green, keep dark icon */
+.fabItem.active .fabPill {
+  background: var(--color-partner-a);
+  color: var(--color-on-primary);
+  box-shadow: 0 6px 24px var(--color-partner-a-dim);
+}

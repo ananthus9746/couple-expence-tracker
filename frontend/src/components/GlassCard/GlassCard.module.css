@@ -1,0 +1,42 @@
+/* ── GlassCard Component ── */
+
+.card {
+  background: var(--color-surface-container-low);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-outline-variant);
+  border-top-color: var(--color-outline);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* optional subtle inner glow */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-surface-bright) 0%, transparent 60%);
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.interactive {
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+.elevated {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}

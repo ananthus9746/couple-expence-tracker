@@ -1,0 +1,98 @@
+/* ── JoinCouplePage ── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: none;
+  border: none;
+  color: var(--color-on-surface-variant);
+  font-size: var(--text-body-md-size);
+  cursor: pointer;
+  padding: var(--space-sm) 0;
+  margin-left: -4px;
+  transition: color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back:hover {
+  color: var(--color-on-surface);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-mobile-size);
+  line-height: var(--text-headline-lg-mobile-lh);
+  font-weight: var(--text-headline-lg-mobile-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex: 1;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border: none;
+  padding: 0;
+}
+
+.codeInput {
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 24px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.infoIcon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoText {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  color: var(--color-on-surface-variant);
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: var(--space-lg);
+}
+
+.guestActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+

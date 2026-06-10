@@ -1,0 +1,118 @@
+/* ── InputField Component ── */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  background: var(--color-surface-container-high);
+  border: 1.5px solid var(--color-outline-variant);
+  border-radius: var(--radius-xl);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  padding: 10px var(--space-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: var(--color-outline);
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-partner-a-dim);
+}
+
+.input.hasLeadingIcon {
+  padding-left: 44px;
+}
+
+.input.hasTrailingIcon {
+  padding-right: 44px;
+}
+
+.leadingIcon {
+  position: absolute;
+  left: 10px;
+  color: var(--color-on-surface-variant);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.trailingIcon {
+  position: absolute;
+  right: 10px;
+  color: var(--color-on-surface-variant);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Interactive trailing button (eye toggle for password) */
+.trailingBtn {
+  position: absolute;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trailingBtn:hover {
+  color: var(--color-on-surface);
+  background: var(--color-surface-container-highest);
+}
+
+.trailingBtn:active {
+  transform: scale(0.92);
+}
+
+.helper {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  color: var(--color-on-surface-variant);
+  padding-left: 4px;
+}
+
+.error .input {
+  border-color: var(--color-error);
+}
+
+.error .input:focus {
+  box-shadow: 0 0 0 3px var(--color-error-container);
+}
+
+.error .helper {
+  color: var(--color-error);
+}
