@@ -3,10 +3,15 @@ import { auth as authApi, setToken, clearToken, getToken } from '../services/api
 
 const AuthContext = createContext(null)
 
+// Normalise user so user._id is always set (login returns 'id', getMe returns '_id')
+const normalise = (u) => u ? { ...u, _id: u._id || u.id } : u
+
 export const AuthProvider = ({ children }) => {
-  const [user,    setUser]    = useState(null)
+  const [user,    setUserRaw] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error,   setError]   = useState(null)
+
+  const setUser = (u) => setUserRaw(normalise(u))
 
   // Restore session from saved token on mount
   useEffect(() => {

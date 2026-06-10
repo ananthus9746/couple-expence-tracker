@@ -369,6 +369,11 @@ exports.joinWithCode = async (req, res) => {
       if (!user) {
         return res.status(404).json({ message: 'Invited partner account not found' })
       }
+      // Ensure coupleId is always persisted on the user document
+      if (!user.coupleId || user.coupleId.toString() !== couple._id.toString()) {
+        user.coupleId = couple._id
+        await user.save()
+      }
     }
 
     sendToken(user, 200, res)
