@@ -181,7 +181,7 @@ const HistoryPage = () => {
               category={expense.category}
               date={expense.date}
               paidBy={expense.paidBy}
-              onDelete={expense.addedBy === user?._id ? () => handleDeleteClick(expense) : undefined}
+              onDelete={expense.addedBy === (user?._id || user?.id) ? () => handleDeleteClick(expense) : undefined}
             />
           ))}
         </div>

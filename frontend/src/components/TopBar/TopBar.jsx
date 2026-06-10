@@ -76,7 +76,7 @@ const TopBar = ({
             <div className={[styles.avatarRing, styles.partnerB].join(' ')} aria-label={partnerB}>
               <div
                 className={styles.avatarInitial}
-                style={{ background: 'rgba(244,114,182,0.2)', color: '#f472b6' }}
+                style={{ background: 'rgba(215, 242, 255, 0.08)', color: '#2a89dcff' }}
               >
                 {initial(partnerB)}
               </div>
