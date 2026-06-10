@@ -46,17 +46,6 @@ const ProfilePage = () => {
     navigate('/login')
   }
 
-  const handleLeaveCouple = async () => {
-    if (!window.confirm('WARNING: Leaving your couple will permanently delete all shared expenses and unlink both partners. Are you sure you want to proceed?')) return
-    try {
-      await couplesApi.leave()
-      dispatch({ type: 'RESET' })
-      navigate('/profile')
-    } catch (err) {
-      alert(err.message || 'Failed to leave couple')
-    }
-  }
-
   const handleCreateCouple = async (e) => {
     e.preventDefault()
     if (!partnerName.trim()) {
@@ -185,22 +174,6 @@ const ProfilePage = () => {
                 <Icon name="content_copy" size={18} />
               </button>
             </div>
-
-            {/* Leave Couple */}
-            <button
-              type="button"
-              className={[styles.menuItem, styles.dangerItem].join(' ')}
-              onClick={handleLeaveCouple}
-            >
-              <span className={styles.menuIcon}>
-                <Icon name="heart_broken" size={20} />
-              </span>
-              <div className={styles.menuLabelGroup}>
-                <span className={styles.menuLabel}>Leave Couple</span>
-                <span className={styles.menuSub}>Unlink accounts and delete data</span>
-              </div>
-              <Icon name="chevron_right" size={20} className={styles.menuArrow} />
-            </button>
 
           </div>
         </div>

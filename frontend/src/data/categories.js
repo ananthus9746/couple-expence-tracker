@@ -17,6 +17,8 @@ export const ALL_CATEGORIES = [
   { key: 'health',        icon: 'favorite',            label: 'Health'      },
   { key: 'entertainment', icon: 'celebration',         label: 'Fun'         },
   { key: 'dining',        icon: 'dinner_dining',       label: 'Dining'      },
+  { key: 'gopika',        icon: 'face_3',              label: 'Gopika'      },
+  { key: 'ananthu',       icon: 'face',                label: 'Ananthu'     },
   { key: 'other',         icon: 'more_horiz',          label: 'Other'       },
 ]
 
