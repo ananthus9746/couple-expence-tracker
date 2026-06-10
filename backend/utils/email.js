@@ -40,17 +40,32 @@ exports.sendOtpEmail = async (email, name, otp, isReset = false) => {
     ? `<p style="color:#a3a3a3;margin-bottom:4px;">Use this OTP to reset your password.</p>`
     : `<p style="color:#a3a3a3;margin-bottom:4px;">Thanks for joining! Enter this code in the app to verify your email and set up your couple.</p>`
 
-  await transporter.sendMail({
-    from,
-    to: email,
-    subject,
-    html: wrapper(`
-      <h2 style="color:#f5f5f5;margin:0 0 8px;font-size:22px;">${headline}</h2>
-      ${body}
-      ${otpBox(otp)}
-      <p style="color:#737373;font-size:12px;">This code expires in <strong style="color:#f5f5f5;">10 minutes</strong>.</p>
-    `),
-  })
+  // Always log OTP in console for easy development testing
+  console.log('\n----------------------------------------')
+  console.log(`🔑 [OTP EMAIL] To: ${email} | OTP: ${otp}`)
+  console.log('----------------------------------------\n')
+
+  try {
+    await transporter.sendMail({
+      from,
+      to: email,
+      subject,
+      html: wrapper(`
+        <h2 style="color:#f5f5f5;margin:0 0 8px;font-size:22px;">${headline}</h2>
+        ${body}
+        ${otpBox(otp)}
+        <p style="color:#737373;font-size:12px;">This code expires in <strong style="color:#f5f5f5;">10 minutes</strong>.</p>
+      `),
+    })
+  } catch (err) {
+    console.error(`❌ Failed to send email via SMTP: ${err.message}`)
+    // If we are in local development, don't fail the request so we can use the console OTP
+    if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+      console.log('⚠️ Continuing registration response because we are in development mode.')
+      return
+    }
+    throw err
+  }
 }
 
 /* ── Partner invite email ── */
